@@ -1,0 +1,20 @@
+{
+  "name": "node-oidc-client",
+  "main": "server.js",
+  "private": true,
+  "dependencies" : {
+    "express" : "~4.0.0",           
+    "ejs" : "~0.8.5",               
+    "passport" : "~0.1.17",
+    
+    "oauth": "mcosand/node-oauth",
+    "passport-openidconnect": "mcosand/passport-openidconnect#simple-hybrid",
+    "connect-flash" : "~0.1.1",     
+
+    "morgan": "~1.0.0",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.0",
+    "method-override": "~1.0.0",
+    "express-session": "~1.0.0"     
+  }
+}
