@@ -1,6 +1,8 @@
 # Mac OS X
 .DS_Store
 
+bower_components
+
 # Node.js
 node_modules
 npm-debug.log

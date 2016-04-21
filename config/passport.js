@@ -1,11 +1,8 @@
 // load all the things we need
 var OIDCStrategy = require('passport-openidconnect').Strategy;
 
-// load up the user model
-///var User       = require('../app/models/user');
-
 // load the auth variables
-var configAuth = require('./auth');
+var configAuth = require('./settings');
 
 module.exports = function(passport) {
   // used to serialize the user for the session
@@ -34,6 +31,10 @@ module.exports = function(passport) {
   },
 
   function(iss, sub, profile, accessToken, refreshToken, done) {
-      return done(null, { first: profile.name.givenName, memberId: profile._json.memberId });
+    return done(null, {
+      name: profile.displayName,
+      memberId: profile._json.memberId,
+      aToken: accessToken
+    });
   }));
 };

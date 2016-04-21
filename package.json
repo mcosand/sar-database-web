@@ -1,5 +1,5 @@
 {
-  "name": "node-oidc-client",
+  "name": "sar-database-web",
   "main": "server.js",
   "private": true,
   "dependencies" : {

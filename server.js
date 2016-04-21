@@ -2,7 +2,7 @@
 // get all the tools we need
 var express  = require('express');
 var app      = express();
-var port     = process.env.PORT || 8080;
+var port     = process.env.PORT || 8090;
 var passport = require('passport');
 var flash    = require('connect-flash');
 
@@ -21,6 +21,7 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
 
 app.set('view engine', 'ejs'); // set up ejs for templating
+app.use(express.static('public'));
 
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch', saveUninitialized: true })); // session secret

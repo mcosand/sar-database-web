@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= header.title %> - KCSARA Database</title>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <%if (site.debug) { %>
+  <link rel="stylesheet" href="<%= site.root %>css/sar-common.css">
+  <% } %>
+</head>
+<body layout="row" ng-app="sarDatabase" class="ng-cloak">
+  <div layout="column" flex id="content" role="main" ng-controller="navController">
+    <md-toolbar class="md-whiteframe-z1 md-primary">
+      <% include nav-bar-contents %>
+    </md-toolbar>
+    <md-content flex layout="row">
+      <md-sidenav class="md-sidenav-left md-background" md-component-id="left" md-whiteframe="4" md-is-locked-open="$mdMedia('gt-md')">
+        <% include menu-contents %>
+      </md-sidenav>
+      <md-content layout="column" flex="noshrink" id="content" layout-padding>

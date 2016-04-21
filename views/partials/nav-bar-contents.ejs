@@ -1,0 +1,46 @@
+<div class="md-toolbar-tools" layout="row">
+  <md-button hide-gt-md ng-click="toggleNav($event)" class="md-icon-button"><i class="fa fa-bars"></i></md-button>
+  <h2>
+    <strong>KCSARA Database</strong>
+  </h2>
+  <span flex></span>
+  <form hide-xs ng-submit="$event.preventDefault()">      
+    <md-autocomplete
+    class="md-primary"
+        md-selected-item="search.selectedItem"
+        md-search-text-change="search.searchTextChange(search.searchText)"
+        md-search-text="search.searchText"
+        md-selected-item-change="search.selectedItemChange(item)"
+        md-items="item in search.querySearch(search.searchText)"
+        md-item-text="item.first"
+        md-min-length="2"
+        placeholder="Search"
+        md-menu-class="autocomplete-custom-template">
+      <md-item-template>
+        <span class="item-title">
+          <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+          <span> {{item.first}} </span>
+        </span>
+        <span class="item-metadata">
+          <span class="item-metastat">
+            <strong>{{item.watchers}}</strong> watchers alphabet soup
+          </span>
+          <span class="item-metastat">
+            <strong>{{item.forks}}</strong> forks
+          </span>
+        </span>
+      </md-item-template>
+    </md-autocomplete>
+  </form>
+  <md-button ng-if="!user.name" ng-click="login($event)">Login</md-button>
+  <md-menu ng-if="user.name">
+    <md-button class="md-icon-button" aria-label="Open account menu" ng-click="openUser($mdOpenMenu, $event)">
+      <i md-menu-origin class="fa fa-user"></i>
+    </md-button>
+    <md-menu-content>
+      <md-menu-item class="bordered"><p>{{user.name}}</p></md-menu-item>
+      <!-- <md-menu-item><md-butt>Logout</md-button></md-menu-item> -->
+    </md-menu-content>
+  </md-menu>
+  
+</div>
